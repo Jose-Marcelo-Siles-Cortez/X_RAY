@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar Equipo</title>
+    <link rel="stylesheet" href="../Estilo/style.css">
+    <style>
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .member {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .member input {
+            width: 70%;
+        }
+        .member select {
+            width: 25%;
+        }
+        .remove-btn {
+            background-color: #dc3545; /* Color rojo para eliminar */
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Modificar Equipo de Ventas</h1>
+        <form id="modificarEquipoForm">
+            <div class="member">
+                <input type="text" name="miembro1" placeholder="Miembro 1" value="Miembro A">
+                <select name="rol1">
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Asistente">Asistente</option>
+                </select>
+                <button type="button" class="remove-btn" onclick="removeMember(this)">Eliminar</button>
+            </div>
+            <div class="member">
+                <input type="text" name="miembro2" placeholder="Miembro 2" value="Miembro B">
+                <select name="rol2">
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Asistente">Asistente</option>
+                </select>
+                <button type="button" class="remove-btn" onclick="removeMember(this)">Eliminar</button>
+            </div>
+            <div class="member">
+                <input type="text" name="miembro3" placeholder="Miembro 3" value="Miembro C">
+                <select name="rol3">
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Asistente">Asistente</option>
+                </select>
+                <button type="button" class="remove-btn" onclick="removeMember(this)">Eliminar</button>
+            </div>
+            <button type="button" id="addMemberBtn">Añadir Miembro</button>
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('addMemberBtn').addEventListener('click', function() {
+            const memberCount = document.querySelectorAll('.member').length;
+            if (memberCount < 3) {
+                const newMember = document.createElement('div');
+                newMember.className = 'member';
+                newMember.innerHTML = `
+                    <input type="text" name="miembro${memberCount + 1}" placeholder="Miembro ${memberCount + 1}" value="Miembro D">
+                    <select name="rol${memberCount + 1}">
+                        <option value="Vendedor">Vendedor</option>
+                        <option value="Asistente">Asistente</option>
+                    </select>
+                    <button type="button" class="remove-btn" onclick="removeMember(this)">Eliminar</button>
+                `;
+                document.getElementById('modificarEquipoForm').insertBefore(newMember, document.getElementById('addMemberBtn'));
+            } else {
+                alert('No se pueden añadir más de 3 miembros.');
+            }
+        });
+
+        function removeMember(button) {
+            const member = button.parentElement;
+            member.parentElement.removeChild(member);
+        }
+
+        document.getElementById('modificarEquipoForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            window.location.href = 'mensajeExito.html'; // Redirigir a la nueva página de éxito
+        });
+    </script>
+</body>
+</html>

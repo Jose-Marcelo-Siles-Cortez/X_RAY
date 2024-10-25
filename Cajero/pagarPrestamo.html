@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar Préstamo</title>
+    <link rel="stylesheet" href="../Estilo/style.css">
+    <script>
+        function generarValores() {
+            // Generar un número aleatorio entre 60 y 710
+            const montoPrestamo = Math.floor(Math.random() * (710 - 60 + 1)) + 60;
+            // Generar un número aleatorio entre 1 y 75
+            const tasaInteres = (Math.random() * (75 - 1) + 1).toFixed(2);
+            
+            // Asignar los valores generados a los inputs
+            document.getElementById("prestamo").value = montoPrestamo;
+            document.getElementById("interes").value = tasaInteres;
+        }
+        window.onload = generarValores; // Llamar a la función al cargar la página
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Pagar Préstamo</h1>
+        <form action="confirmacionArticuloDevuelto.html" method="post">
+            <label for="metodo">Método de pago:</label>
+            <select id="metodo" name="metodo" required>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="efectivo">Efectivo</option>
+            </select>
+            
+            <label for="prestamo">Monto del préstamo:</label>
+            <input type="number" id="prestamo" name="prestamo" required readonly>
+            
+            <label for="interes">Tasa de interés (%):</label>
+            <input type="number" id="interes" name="interes" step="0.01" required readonly>
+            
+            <button type="submit">Confirmar</button>
+        </form>
+    </div>
+</body>
+</html>

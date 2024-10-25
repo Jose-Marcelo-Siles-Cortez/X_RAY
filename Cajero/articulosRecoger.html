@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículos a Recoger</title>
+    <link rel="stylesheet" href="../Estilo/style.css">
+    <script>
+        function generarFechaAleatoria() {
+            // Establecer las fechas límite
+            const fechaInicio = new Date('2019-05-05'); // 5 de mayo de 2019
+            const fechaFin = new Date('2024-04-02'); // 2 de abril de 2024
+            
+            // Generar un timestamp aleatorio entre las dos fechas
+            const timestampAleatorio = Math.random() * (fechaFin - fechaInicio) + fechaInicio.getTime();
+            
+            // Convertir el timestamp de vuelta a una fecha
+            const fechaAleatoria = new Date(timestampAleatorio);
+            
+            // Formatear la fecha a 'DD/MM/YYYY'
+            const opciones = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            const fechaFormateada = fechaAleatoria.toLocaleDateString('es-ES', opciones);
+            
+            // Mostrar la fecha en el elemento con id "fecha"
+            document.getElementById("fecha").textContent = `Fecha : ${fechaFormateada}`;
+        }
+
+        function verificarEstado() {
+            const nombre = new URLSearchParams(window.location.search).get('nombre');
+            const apellido = new URLSearchParams(window.location.search).get('apellido');
+
+            if (nombre.toLowerCase() === "juan" && apellido.toLowerCase() === "perez") {
+                document.getElementById("estado").textContent = "No puede recoger su artículo porque lleva 1 mes de retraso. Artículo1 (2 meses de retraso)";
+                return false;
+            }
+            document.getElementById("estado").textContent = "Artículo1 (1 mes falta para pagar)";
+            return true;
+        }
+
+        window.onload = function() {
+            verificarEstado();
+            generarFechaAleatoria(); // Llamar a la función para generar la fecha
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Artículos a Recoger</h1>
+        <p id="estado"></p>
+        <p id="fecha"></p> <!-- Aquí se mostrará la fecha aleatoria -->
+        <form action="pagarPrestamo.html" method="get">
+            <button type="submit">Siguiente</button>
+        </form>
+    </div>
+</body>
+</html>

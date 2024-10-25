@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Préstamos Otorgados</title>
+    <link rel="stylesheet" href="../Estilo/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Préstamos Otorgados y Artículos Vendidos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Artículo/Préstamo</th>
+                    <th>Ganancia</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Préstamo A</td>
+                    <td>$100</td>
+                    <td><button onclick="recogerCapital()">Recoger Capital</button></td>
+                </tr>
+                <tr>
+                    <td>Artículo B</td>
+                    <td>$150</td>
+                    <td><button onclick="recogerCapital()">Recoger Capital</button></td>
+                </tr>
+                <tr>
+                    <td>Préstamo C</td>
+                    <td>$200</td>
+                    <td><button onclick="recogerCapital()">Recoger Capital</button></td>
+                </tr>
+                <tr>
+                    <td>Artículo D</td>
+                    <td>$80</td>
+                    <td><button onclick="recogerCapital()">Recoger Capital</button></td>
+                </tr>
+                <tr>
+                    <td>Préstamo E</td>
+                    <td>$120</td>
+                    <td><button onclick="recogerCapital()">Recoger Capital</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function recogerCapital() {
+            alert("El capital ha sido recogido con éxito.");
+        }
+    </script>
+</body>
+</html>

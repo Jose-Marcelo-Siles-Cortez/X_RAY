@@ -1,28 +1,25 @@
 <?php
 $usuario = $_POST['usuario'];
 $contraseña = $_POST['contraseña'];
-
 session_start();
 $_SESSION['usuario'] = $usuario;
 
 $conexion = mysqli_connect("localhost", "root", "", "rol");
-
 $consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND contraseña='$contraseña'";
 $resultado = mysqli_query($conexion, $consulta);
-
 $filas = mysqli_fetch_array($resultado);
 
 if ($filas) {
     if ($filas['id_cargo'] == 1) {
-        header("location:admin.php"); // Administrador
+        header("location:Director/directorIndex.html"); // Administrador
     } elseif ($filas['id_cargo'] == 2) {
-        header("location:auxiliar.php"); // Cliente
+        header("location:AuxiliarFinanciero/auxiliarIndex.html"); // Auxiliar
     } elseif ($filas['id_cargo'] == 3) {
-        header("location:cajero.php"); // Cajero
+        header("location:Encargado de ventas/encargadoIndex.html"); // Cajero
     } elseif ($filas['id_cargo'] == 4) {
-        header("location:almacen.php"); // Almacén
+        header("location:Cajero/cajeroIndex.html"); // Almacén
     } elseif ($filas['id_cargo'] == 5) {
-        header("location:vendedor.php"); // Vendedor
+        header("location:EncargadoAlmacenes/encargadoAlmacenesIndex.html"); // Vendedor
     }
 } else {
     include("index.html");

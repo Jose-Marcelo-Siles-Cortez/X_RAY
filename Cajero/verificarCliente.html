@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Cliente</title>
+    <link rel="stylesheet" href="../Estilo/style.css">
+    <script>
+        function verificarCliente() {
+            const nombre = document.getElementById("nombre").value;
+            const apellido = document.getElementById("apellido").value;
+            if (nombre.toLowerCase() === "jhon" && apellido.toLowerCase() === "smith") {
+                document.getElementById("mensaje").textContent = "Cliente no registrado, intente de nuevo.";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Verificación de Cliente</h1>
+        <form onsubmit="return verificarCliente()" action="articulosRecoger.html" method="get">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required>
+            
+            <button type="submit">Siguiente</button>
+        </form>
+        <p id="mensaje" style="color: red;"></p>
+    </div>
+</body>
+</html>

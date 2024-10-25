@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Artículos</title>
+    <link rel="stylesheet" href="../Estilo/style.css">
+    <script>
+        function registrarArticulo() {
+            // Obtener los valores del artículo recién recibido
+            let nombre = document.getElementById("nombreArticulo").innerText;
+            let precio = document.getElementById("precioArticulo").innerText;
+            let equipo = document.getElementById("equipoDesignado").value;
+            
+            // Crear una nueva fila en la tabla de artículos registrados
+            let tabla = document.getElementById("tablaArticulos");
+            let nuevaFila = tabla.insertRow();
+            
+            // Añadir celdas a la nueva fila
+            let celdaNombre = nuevaFila.insertCell(0);
+            let celdaPrecio = nuevaFila.insertCell(1);
+            let celdaEquipo = nuevaFila.insertCell(2);
+            
+            // Asignar los valores a las celdas
+            celdaNombre.innerText = nombre;
+            celdaPrecio.innerText = precio;
+            celdaEquipo.innerText = equipo;
+            
+            // Limpiar la tabla de artículos recién recibidos
+            document.getElementById("tablaRecibidos").deleteRow(1);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Artículos</h1>
+
+        <!-- Tabla de Artículos Registrados -->
+        <table id="tablaArticulos">
+            <thead>
+                <tr>
+                    <th>Nombre del Artículo</th>
+                    <th>Precio</th>
+                    <th>Equipo Designado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Artículo A</td>
+                    <td>$50</td>
+                    <td>Equipo 1</td>
+                </tr>
+                <tr>
+                    <td>Artículo B</td>
+                    <td>$75</td>
+                    <td>Equipo 2</td>
+                </tr>
+                <tr>
+                    <td>Artículo C</td>
+                    <td>$120</td>
+                    <td>Equipo 1</td>
+                </tr>
+                <tr>
+                    <td>Artículo D</td>
+                    <td>$30</td>
+                    <td>Equipo 3</td>
+                </tr>
+                <tr>
+                    <td>Artículo E</td>
+                    <td>$90</td>
+                    <td>Equipo 2</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Tabla de Artículos Recién Recibidos -->
+        <h2>Artículos Recién Recibidos</h2>
+        <table id="tablaRecibidos">
+            <thead>
+                <tr>
+                    <th>Nombre del Artículo</th>
+                    <th>Precio</th>
+                    <th>Equipo Designado</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="nombreArticulo">Artículo F</td>
+                    <td id="precioArticulo">$100</td>
+                    <td>
+                        <select id="equipoDesignado">
+                            <option value="Equipo 1">Equipo 1</option>
+                            <option value="Equipo 2">Equipo 2</option>
+                            <option value="Equipo 3">Equipo 3</option>
+                        </select>
+                    </td>
+                    <td id="nombreArticulo">Artículo G</td>
+                    <td id="precioArticulo">$150</td>
+                    <td>
+                        <select id="equipoDesignado">
+                            <option value="Equipo 1">Equipo 1</option>
+                            <option value="Equipo 2">Equipo 2</option>
+                            <option value="Equipo 3">Equipo 3</option>
+                        </select>
+                    </td>
+                    <td id="nombreArticulo">Artículo H</td>
+                    <td id="precioArticulo">$200</td>
+                    <td>
+                        <select id="equipoDesignado">
+                            <option value="Equipo 1">Equipo 1</option>
+                            <option value="Equipo 2">Equipo 2</option>
+                            <option value="Equipo 3">Equipo 3</option>
+                        </select>
+                    </td>
+                    <td><button onclick="registrarArticulo()">Registrar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

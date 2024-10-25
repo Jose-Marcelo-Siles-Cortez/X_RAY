@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto</title>
+    <link rel="stylesheet" href="../Estilo/style.css">
+    <script>
+        function calcularTotal() {
+            const sueldos = parseFloat(document.getElementById('real-sueldos').value) || 0;
+            const infraestructura = parseFloat(document.getElementById('real-infraestructura').value) || 0;
+            const impuestos = parseFloat(document.getElementById('real-impuestos').value) || 0;
+            const total = sueldos + infraestructura + impuestos;
+
+            document.getElementById('total-real').textContent = total;
+
+            const presupuestoTotal = 50000; 
+            if (total > presupuestoTotal) {
+                document.getElementById('error').textContent = 'El total supera el presupuesto disponible. No puede continuar.';
+                document.getElementById('siguiente').disabled = true;
+            } else {
+                document.getElementById('error').textContent = '';
+                document.getElementById('siguiente').disabled = false;
+            }
+        }
+
+        function mostrarResultado() {
+            const sueldos = parseFloat(document.getElementById('real-sueldos').value) || 0;
+            const infraestructura = parseFloat(document.getElementById('real-infraestructura').value) || 0;
+            const impuestos = parseFloat(document.getElementById('real-impuestos').value) || 0;
+            const total = sueldos + infraestructura + impuestos;
+            
+            const presupuestoTotal = 50000;
+
+            if (total <= presupuestoTotal) {
+                document.getElementById('res-sueldos').textContent = sueldos;
+                document.getElementById('res-infraestructura').textContent = infraestructura;
+                document.getElementById('res-impuestos').textContent = impuestos;
+                
+                document.getElementById('resultado').style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Presupuesto</h1>
+        <div class="presupuesto-total">
+            <h2>Presupuesto Total: $50,000</h2>
+        </div>
+        <div class="inversiones-actuales">
+            <h3>Inversiones Actuales:</h3>
+            <ul>
+                <li>Sueldos: $20,000</li>
+                <li>Infraestructura: $15,000</li>
+                <li>Impuestos: $5,000</li>
+            </ul>
+        </div>
+        <form oninput="calcularTotal()">
+            <h3>Ingrese los montos que se deben invertir realmente:</h3>
+            <label for="real-sueldos">Sueldos:</label>
+            <input type="number" id="real-sueldos" name="real-sueldos" required>
+            
+            <label for="real-infraestructura">Infraestructura:</label>
+            <input type="number" id="real-infraestructura" name="real-infraestructura" required>
+            
+            <label for="real-impuestos">Impuestos:</label>
+            <input type="number" id="real-impuestos" name="real-impuestos" required>
+            
+            <div class="total-real">
+                <h3>Total Real: $<span id="total-real">0</span></h3>
+            </div>
+            
+            <div id="error" style="color: red;"></div>
+            <button type="button" id="siguiente" onclick="mostrarResultado()">Siguiente</button>
+        </form>
+        
+        <div id="resultado" style="display: none;">
+            <h2>Resultado Presupuesto</h2>
+            <div class="resultados">
+                <h3>Montos ingresados por el cliente:</h3>
+                <ul>
+                    <li>Sueldos: $<span id="res-sueldos"></span></li>
+                    <li>Infraestructura: $<span id="res-infraestructura"></span></li>
+                    <li>Impuestos: $<span id="res-impuestos"></span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <button type="button" onclick="window.location.href='obtenerMasPresupuesto.html'">Obtener más presupuesto</button>
+    </div>
+
+</body>
+</html>

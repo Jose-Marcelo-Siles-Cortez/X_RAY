@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtener Más Presupuesto</title>
+    <link rel="stylesheet" href="../Estilo/style.css">
+    <script>
+        function aumentarPrecio(input, precioId) {
+            const aumento = parseFloat(input.value) || 0;
+            const precioActual = parseFloat(document.getElementById(precioId).textContent) || 0;
+            document.getElementById(precioId).textContent = (precioActual + aumento).toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Artículos No Recogidos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Artículo</th>
+                    <th>Precio Actual</th>
+                    <th>Aumentar Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Artículo A</td>
+                    <td id="precio1">$50</td>
+                    <td>
+                        <input type="number" id="aumento1" placeholder="Ingrese aumento">
+                        <button type="button" onclick="aumentarPrecio(document.getElementById('aumento1'), 'precio1')">Aumentar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Artículo B</td>
+                    <td id="precio2">$75</td>
+                    <td>
+                        <input type="number" id="aumento2" placeholder="Ingrese aumento">
+                        <button type="button" onclick="aumentarPrecio(document.getElementById('aumento2'), 'precio2')">Aumentar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Artículo C</td>
+                    <td id="precio3">$120</td>
+                    <td>
+                        <input type="number" id="aumento3" placeholder="Ingrese aumento">
+                        <button type="button" onclick="aumentarPrecio(document.getElementById('aumento3'), 'precio3')">Aumentar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Artículo D</td>
+                    <td id="precio4">$30</td>
+                    <td>
+                        <input type="number" id="aumento4" placeholder="Ingrese aumento">
+                        <button type="button" onclick="aumentarPrecio(document.getElementById('aumento4'), 'precio4')">Aumentar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Artículo E</td>
+                    <td id="precio5">$90</td>
+                    <td>
+                        <input type="number" id="aumento5" placeholder="Ingrese aumento">
+                        <button type="button" onclick="aumentarPrecio(document.getElementById('aumento5'), 'precio5')">Aumentar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
