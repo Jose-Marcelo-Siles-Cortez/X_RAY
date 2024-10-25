@@ -1,0 +1,68 @@
+* {
+    padding: 0; /* Elimina el padding por defecto de todos los elementos */
+    margin: 0;  /* Elimina el margen por defecto de todos los elementos */
+    font-family: century gothic; /* Aplica la fuente Century Gothic a todo el texto */
+    text-align: center; /* Centra el texto en todos los elementos */
+}
+
+body {
+    background-image: url('../IMG/fondolegal.jpg'); /* Establece una imagen de fondo para el cuerpo de la página */
+    width: 100%; /* El ancho del cuerpo de la página ocupa el 100% del contenedor */
+    height: 100vh; /* La altura del cuerpo de la página ocupa el 100% de la ventana */
+    background-size: cover; /* La imagen de fondo cubre todo el fondo del cuerpo */
+    color: white; /* El color del texto es blanco */
+}
+
+form {
+    padding: 50px 20px; /* Añade un padding de 50px arriba y abajo, y 20px a los lados */
+    background-color: #381b1ba6; /* Establece un color de fondo semi-transparente */
+    margin: calc(25% + 100px); /* Añade un margen alrededor del formulario, calculado como 25% más 100px */
+    margin-top: 70px; /* Añade un margen superior de 70px */
+    padding-top: 28px; /* Añade un padding superior de 28px */
+    margin-bottom: 30px; /* Añade un margen inferior de 30px */
+}
+
+h1 {
+    text-align: center; /* Centra el texto dentro del h1 */
+    padding: 12px; /* Añade un padding de 12px alrededor del texto del h1 */
+    color: rgb(206, 203, 203); /* Establece el color del texto en un tono gris claro */
+}
+
+input {
+    width: calc(100% - 20px); /* Ajusta el ancho de los inputs restando 20px del 100% */
+    padding: 9px; /* Añade un padding de 9px dentro de los inputs */
+    margin: auto; /* Centra los inputs automáticamente */
+    margin-top: 12px; /* Añade un margen superior de 12px */
+    font-size: 16px; /* Establece el tamaño de fuente en 16px */
+}
+
+input[type='submit'] {
+    background-color: #48e; /* Establece el color de fondo del botón de submit en azul claro */
+    color: #fff; /* Establece el color del texto en blanco */
+    width: calc(80% - 20px); /* Ajusta el ancho del botón restando 20px del 80% */
+    margin: 0 10%; /* Añade un margen a los lados del botón */
+    margin-top: 22px; /* Añade un margen superior de 22px */
+    border: none; /* Elimina cualquier borde del botón */
+}
+
+.captcha-image {
+    text-align: center; /* Centra la imagen del CAPTCHA */
+    margin: 15px 0; /* Añade un margen de 15px arriba y abajo de la imagen */
+}
+
+.links {
+    margin-top: 20px; /* Añade un margen superior de 20px */
+}
+
+.links a {
+    color: #48e; /* Establece el color de los enlaces en azul claro */
+    text-decoration: none; /* Elimina la subrayado de los enlaces */
+}
+
+footer {
+    margin-top: 30px; /* Añade un margen superior de 30px */
+}
+
+footer p {
+    color: white; /* Establece el color del texto del pie de página en blanco */
+}
